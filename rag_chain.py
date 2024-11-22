@@ -54,15 +54,15 @@ final_chain = (
 )
 
 
-query = {
-    "question": "Giá của Khăn Ướt SmartAngel Không Mùi là bao nhiêu?"
-}
-result = final_chain.invoke(query)
+# query = {
+#     "question": "Giá của Khăn Ướt SmartAngel Không Mùi là bao nhiêu?"
+# }
+# result = final_chain.invoke(query)
 
-for doc in result['docs']:
-    raw_content = doc.page_content
+# for doc in result['docs']:
+#     raw_content = doc.page_content
 
-    try:
-        decoded_content = bytes(raw_content, 'utf-8').decode('unicode_escape')
-    except json.JSONDecodeError:
-        print("Error:", raw_content)
+#     try:
+#         decoded_content = bytes(raw_content, 'utf-8').decode('unicode_escape')
+#     except json.JSONDecodeError:
+#         print("Error:", raw_content)
