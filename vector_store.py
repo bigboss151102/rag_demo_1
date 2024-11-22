@@ -127,49 +127,6 @@ def save_to_db(chunks, connection_string, embeddings):
     else:
         print("Failed to connect to the database.")
 
-# embeddings = OpenAIEmbeddings(model='text-embedding-ada-002', api_key=openai_api_key)
-
-
-# text_splitter = CharacterTextSplitter(chunk_size=800, chunk_overlap=150)
-
-# # flattened_docs = [Document(page_content=doc.page_content) for doc in documents if doc.page_content]
-# flattened_docs = [doc for doc in documents if doc.page_content]
-# initial_chunks = text_splitter.split_documents(flattened_docs)
-
-# semantic_chunker = SemanticChunker(embeddings=embeddings)
-# chunks = semantic_chunker.split_documents(initial_chunks)
-
-
-
-# connection_string = f"postgresql+psycopg2://{postgres_user}:{postgres_password}@localhost:5435/{postgres_db}"
-
-# def create_connection():
-#     try:
-#         connection = psycopg2.connect(
-#             user=postgres_user,
-#             password=postgres_password,
-#             host="localhost", 
-#             port="5435",
-#             database=postgres_db
-#         )
-#         return connection
-#     except OperationalError as e:
-#         print(f"The error '{e}' occurred")
-#         return None
-
-# connection = create_connection()
-
-# if connection is not None:
-#     PGVector.from_documents(
-#         documents=chunks,
-#         embedding=embeddings,
-#         collection_name="products",
-#         connection_string=connection_string,
-#         pre_delete_collection=True,
-#     )
-# else:
-#     print("Failed to connect to the database.")
-
 if __name__ == "__main__":
     documents = get_document("/Users/ttcenter/AvocaEdu/demo_vector_store/data.json")
     content_dicts = get_content(documents)
